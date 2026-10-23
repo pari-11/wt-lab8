@@ -49,6 +49,6 @@ cricket-score-app/src/main/java/com/wtlab/cricket/
 src/main/resources/static/   Dashboard (HTML/CSS/JS)
 ```
 
-## `frontend-demo/`
+## `frontend/`
 
-The same dashboard, served by a small Node.js server (`node server.js`, http://localhost:8080) that provides the same `/api` endpoints. It's useful for previewing the UI on a machine without Java.
+The dashboard with a lightweight Node.js server (`node server.js`, then open http://localhost:8080) that serves the same `/api` endpoints as the Spring Boot backend.

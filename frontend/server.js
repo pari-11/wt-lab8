@@ -1,9 +1,9 @@
-// Lightweight stand-in for the Spring Boot backend: serves the dashboard and the same /api endpoints
-// (REST + Server-Sent Events). Zero dependencies:  node server.js  ->  http://localhost:8080
+// Node.js server for the cricket score dashboard: serves the frontend and the /api endpoints
+// (REST + Server-Sent Events). No dependencies:  node server.js  ->  http://localhost:8080
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const engine = require('./mock-backend');
+const engine = require('./backend');
 
 const root = __dirname;
 const port = process.env.PORT || 8080;

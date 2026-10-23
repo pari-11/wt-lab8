@@ -1,4 +1,4 @@
-// Dashboard UI. Talks only to window.CricketAPI (api.js for the backend, mock-api.js for the offline demo).
+// Dashboard UI. All data comes from the backend through window.CricketAPI (api.js).
 (() => {
   const api = window.CricketAPI;
   const state = {
@@ -227,7 +227,7 @@
 
   function setConnection(status) {
     const el = $('#connection');
-    const map = { connected: ['ok', 'Live feed connected'], reconnecting: ['warn', 'Reconnecting…'], demo: ['demo', 'Demo mode · simulated feed'] };
+    const map = { connected: ['ok', 'Live feed connected'], reconnecting: ['warn', 'Reconnecting…'] };
     const [cls, text] = map[status] || ['', status];
     el.className = `conn ${cls}`;
     el.textContent = text;

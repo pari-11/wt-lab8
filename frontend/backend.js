@@ -1,5 +1,4 @@
-// Node port of the Spring Boot scoring engine (Innings.java, ScoringService.java, MatchSimulator.java,
-// DataSeeder.java). server.js exposes it through the same REST + SSE endpoints as the Java backend.
+// Scoring engine, live match simulator and seed data, used by server.js to serve the /api endpoints.
 module.exports = (() => {
   const rnd = n => Math.floor(Math.random() * n);
   const pick = a => a[rnd(a.length)];
@@ -259,7 +258,7 @@ module.exports = (() => {
   const attempt = fn => { try { return ok(fn()); } catch (e) { return Promise.reject(e); } };
 
   return {
-    mode: 'demo',
+    mode: 'live',
     listMatches: () => ok([...matches].sort((a, b) => order[a.status] - order[b.status] || a.start - b.start).map(view)),
     getMatch: id => attempt(() => view(find(id))),
     getSummary: id => attempt(() => summary(find(id))),
@@ -270,6 +269,6 @@ module.exports = (() => {
     startMatch: id => attempt(() => { const m = find(id); startMatch(m); return emit(m); }),
     getSimulator: () => ok({ running, intervalMs: 2500 }),
     setSimulator: r => { running = r; return ok({ running, intervalMs: 2500 }); },
-    subscribe(onMatch, onStatus) { listeners.push(onMatch); setTimeout(() => onStatus('demo'), 0); return () => {}; },
+    subscribe(onMatch, onStatus) { listeners.push(onMatch); setTimeout(() => onStatus('connected'), 0); return () => {}; },
   };
 })();

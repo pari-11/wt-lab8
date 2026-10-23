@@ -39,7 +39,6 @@ button { font: inherit; color: inherit; cursor: pointer; }
 .conn::before { content: "●"; margin-right: 6px; }
 .conn.ok { color: var(--live); }
 .conn.warn { color: var(--extra); }
-.conn.demo { color: #c4b5fd; }
 .clock { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 13px; }
 
 .btn { border: 1px solid var(--border); background: var(--card-2); padding: 6px 12px; border-radius: 8px; }
