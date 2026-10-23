@@ -1,6 +1,6 @@
-// Offline stand-in for the Spring Boot API: same method names and same JSON shapes,
-// but the scoring engine and live feed run in the browser.
-window.CricketAPI = (() => {
+// Node port of the Spring Boot scoring engine (Innings.java, ScoringService.java, MatchSimulator.java,
+// DataSeeder.java). server.js exposes it through the same REST + SSE endpoints as the Java backend.
+module.exports = (() => {
   const rnd = n => Math.floor(Math.random() * n);
   const pick = a => a[rnd(a.length)];
   const surname = n => n.split(' ').pop();
