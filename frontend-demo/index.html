@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CricLive · Live Cricket Scores</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+      <circle cx="16" cy="16" r="14" fill="#e5484d"/>
+      <path d="M9 6c4 6 4 14 0 20M23 6c-4 6-4 14 0 20" stroke="#fff" stroke-width="1.6" fill="none" stroke-dasharray="2 2"/>
+    </svg>
+    <div>
+      <h1>CricLive</h1>
+      <p>Live Score Centre</p>
+    </div>
+  </div>
+  <div class="topbar-actions">
+    <span id="connection" class="conn">Connecting…</span>
+    <button id="simToggle" class="btn ghost" type="button">Pause feed</button>
+    <span id="clock" class="clock"></span>
+  </div>
+</header>
+
+<main class="layout">
+  <section class="strip-wrap">
+    <div class="strip-head">
+      <h2>Matches</h2>
+      <div class="filters" id="filters">
+        <button data-filter="ALL" class="active">All</button>
+        <button data-filter="LIVE">Live</button>
+        <button data-filter="UPCOMING">Upcoming</button>
+        <button data-filter="COMPLETED">Completed</button>
+      </div>
+    </div>
+    <div class="match-strip" id="matchStrip"></div>
+  </section>
+
+  <div class="grid">
+    <div class="col-main">
+      <section class="card hero" id="hero"></section>
+      <section class="card">
+        <nav class="tabs" id="tabs">
+          <button data-tab="scorecard" class="active">Scorecard</button>
+          <button data-tab="commentary">Commentary</button>
+          <button data-tab="summary">Summary</button>
+          <button data-tab="update">Score Update</button>
+        </nav>
+        <div id="tabContent" class="tab-content"></div>
+      </section>
+    </div>
+    <aside class="col-side">
+      <section class="card">
+        <h3 class="card-title">Runs per over</h3>
+        <div id="manhattan"></div>
+      </section>
+      <section class="card">
+        <h3 class="card-title">Leaderboard</h3>
+        <div id="leaders"></div>
+      </section>
+    </aside>
+  </div>
+</main>
+
+<div id="toast" class="toast" role="status"></div>
+
+<script src="js/mock-api.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
